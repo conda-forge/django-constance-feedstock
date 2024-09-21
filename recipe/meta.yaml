@@ -1,5 +1,5 @@
 {% set name = "django-constance" %}
-{% set version = "4.1.1" %}
+{% set version = "4.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 068d8e2c8f647264aa4093f721a6ee5df7fde2c96fff2dd6272b5a38f939307e
+  sha256: 52163529d4b1be4404d4f8568c6742f76f4d4fc90dc31355849ea2c1e0c525d7
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
