@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_constance-{{ version }}.tar.gz
   sha256: e8b619ebeab75665d279299cce4bbebbcb0a73caf3539edcd788f2d2275c21a1
 
 build:
@@ -17,11 +17,13 @@ build:
 requirements:
   host:
     - python {{ python_min }}
+    - wheel
+    - setuptools-scm >=8
     - pip
-    - setuptools
+    - setuptools  >=42
   run:
     - python >={{ python_min }}
-    - django-picklefield
+    #- django-picklefield
 
 test:
   imports:
