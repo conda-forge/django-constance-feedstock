@@ -20,10 +20,11 @@ requirements:
     - wheel
     - setuptools-scm >=8
     - pip
-    - setuptools  >=42
+    - setuptools >=42
   run:
     - python >={{ python_min }}
     #- django-picklefield
+    - django >=4.2
 
 test:
   imports:
