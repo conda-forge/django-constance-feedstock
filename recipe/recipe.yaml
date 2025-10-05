@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  name: django-constance
+  version: "4.3.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_constance-${{ version }}.tar.gz
+  sha256: d86e6b6a797157a4b49d0c679f1b7b9c70b1b540f36dfcda5346736997ae51bd
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - wheel
+    - setuptools-scm >=8
+    - pip
+    - setuptools >=42
+  run:
+    - python >=${{ python_min }},<4.0
+    - django >=4.2
+
+tests:
+  - python:
+      imports:
+        - constance
+      python_version: ${{ python_min }}.*
+      pip_check: true
+
+about:
+  summary: Django live settings with pluggable backends, including Redis.
+  license: BSD-3-Clause
+  license_file: LICENSE
+  homepage: https://github.com/jazzband/django-constance
+
+extra:
+  recipe-maintainers:
+    - rxm7706
