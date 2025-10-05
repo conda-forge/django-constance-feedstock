@@ -27,7 +27,6 @@ requirements:
     - setuptools >=42
   run:
     - python >=${{ python_min }},<4.0
-    #- django-picklefield
     - django >=4.2
 
 tests:
