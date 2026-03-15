@@ -21,12 +21,13 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
+    - setuptools >=42
     - wheel
     - setuptools-scm >=8
     - pip
-    - setuptools >=42
   run:
     - python >=${{ python_min }},<4.0
+    - django >=4.2
 tests:
   - python:
       imports:
